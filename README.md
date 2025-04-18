@@ -1,5 +1,75 @@
-# Vue 3 + TypeScript + Vite
+# A GoodReads Clone
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a modern, responsive web application that clones the core functionality of GoodReads, built for a hackathon project. It aims to provide book enthusiasts with a platform to discover, track, and discuss their reading journey.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 🚀 Features (Planned)
+
+- 📚 Browse and search for books
+- ⭐ Rate and review books
+- 📖 Track reading progress
+- 📋 Create and manage reading lists
+- 🤝 Social features (following users, sharing reviews)
+- 📱 Responsive design for all devices
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: Vue 3 with TypeScript
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+- **Package Manager**: pnpm
+- **Type Checking**: TypeScript
+- **Development Environment**: VS Code with recommended extensions
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/     # Reusable Vue components
+│   └── Header/    # Header-related components
+├── App.vue        # Root component
+├── main.ts        # Application entry point
+└── style.css     # Global styles
+```
+
+## 🚦 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone [your-repo-url]
+   cd goodreads-clone
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   pnpm dev
+   ```
+
+4. **Build for production**
+   ```bash
+   pnpm build
+   ```
+
+## 💻 Development
+
+The project uses Vue 3's Composition API with `<script setup>` syntax for better TypeScript integration and developer experience. Components are organized by feature/domain for better maintainability.
+
+### Recommended IDE Setup
+- [VS Code](https://code.visualstudio.com/)
+- [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
+
+## 🤝 Contributing
+
+This is a hackathon project, but contributions, ideas, and feedback are welcome! Feel free to open issues or submit pull requests.
+
+## 📝 License
+
+[MIT License](LICENSE)
+
+---
+Built with ❤️ for the love of books and coding
