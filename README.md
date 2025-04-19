@@ -42,6 +42,7 @@ A modern, responsive clone of the **Goodreads landing page**, rebuilt using **Vu
 - 🧱 **Layout Modernization:** While Goodreads still uses `float`-based layout in parts of their page, our implementation uses **modern Flexbox** (and Grid where suitable), resulting in cleaner and more maintainable responsive design.
 - 🖥️ **Unified Responsive Layout:** Goodreads serves a **separate mobile view** via full-page reload (triggered by a “Mobile Version” CTA). Instead of duplicating that behavior, we built a **fully responsive Modern UI** that works seamlessly across devices — aligning better with modern UX practices.
 - 🌐 **No Backend:** The entire project is frontend-only, with data persisted using **localStorage**.
+- 📄 **Single HTML Output (Hackathon Requirement):** As per the hackathon rules, the entire project was compiled into a single `index.html` file. This was achieved using the [`vite-plugin-singlefile`](https://github.com/sherl0cks/vite-plugin-singlefile), which inlines all JavaScript and CSS directly into the HTML during the build process. The final output is a self-contained, deployable single file with zero external asset dependencies.
 
 ---
 
