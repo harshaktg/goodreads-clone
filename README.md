@@ -1,139 +1,97 @@
-# A GoodReads Clone
+# 📚 Goodreads Clone — Hackathon Submission
 
-This is a modern, responsive web application that clones the core functionality of GoodReads, built for a hackathon project. It aims to provide book enthusiasts with a platform to discover, track, and discuss their reading journey.
+A modern, responsive clone of the **Goodreads landing page**, rebuilt using **Vue 3**, **TypeScript**, and **Tailwind CSS**. This project replicates the core visual structure of Goodreads while introducing a range of enhancements to improve usability, responsiveness, and user engagement.
 
-## Features
+---
 
-- **Book Discovery**
-  - Browse books by genre with curated lists
-  - Explore Choice Awards selections
-  - Discover featured authors and their works
-  - View editorial blog content and recommendations
+## 🚀 Features
 
-- **Quote Feature**
-  - View inspiring quotes from books
-  - Dynamic quote display with author attribution
-  - Smooth transitions between quotes
+### ✅ Cloned from Goodreads
+- Pixel-perfect replica of the **Goodreads desktop landing page**
+- Recreated sections: Hero, Book Categories, Awards, Lists, Authors, Blog, Footer
 
-- **Dual Interface**
-  - Toggle between Classic and Modern UI
-  - Persistent UI preference storage
-  - Enhanced Modern interface with animations
-  - Maintains Goodreads familiarity in Classic mode
+### ✨ Enhancements
+- **Dark Mode**  
+  Smart system-detected dark mode with manual toggle and persistent preference via localStorage
 
-- **Dark Mode Support**
-  - System-preference aware dark mode
-  - Manual theme toggle with persistence
-  - Smooth theme transitions
-  - Carefully crafted dark mode color palette
+- **Modern UI Toggle**  
+  Switch to a **fully responsive**, clean redesign of the landing page with better mobile UX and improved visuals
 
-- **Modern UI Elements**
-  - Animated gradient headers
-  - Responsive card layouts
-  - Interactive hover states
-  - Accessibility-focused design
+- **"My Shelf" Feature**  
+  - Interactive shelf to **save books to a personal reading list**
+  - Books persist using localStorage
+  - Simple UX to **add/remove** books from a preloaded mock list
 
-## 🚀 Implemented Features
+---
 
-### Core Features
-- 📚 Genre-based book browsing
-- 🏆 Goodreads Choice Awards showcase
-- 💭 Dynamic quotes display
-- 📝 Editorial blog previews
-- 📋 List teasers and recommendations
-- 👥 Featured authors section
+## 🧠 Tech Stack
 
-### User Experience
-- 🎨 Dual UI modes (Classic/Modern)
-- 🌓 Smart dark mode with system sync
-- 🔄 Smooth transitions and animations
-- 📱 Fully responsive design
-- 💾 Persistent user preferences
+| Tech | Description |
+|------|-------------|
+| [Vue 3](https://vuejs.org/) | Composition API with `<script setup>` |
+| [TypeScript](https://www.typescriptlang.org/) | Strong typing throughout the app |
+| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling and responsive layout |
+| [Vite](https://vitejs.dev/) | Lightning-fast build tool |
+| [VueUse](https://vueuse.org/) | Utility composables for reactivity (e.g., dark mode) |
 
-### Technical Features
-- 🏗️ Vue 3 component architecture
-- 📦 TypeScript for type safety
-- 🛠️ Composition API with `<script setup>`
-- 💾 VueUse for composables
-- 🎨 Tailwind CSS with custom config
-- 🔍 Modern and classic theme variants
+---
 
-## 🛠️ Tech Stack
+## 🛠️ Implementation Notes
 
-- **Frontend Framework**: Vue 3 with TypeScript
-- **Styling**: Tailwind CSS with custom utilities
-- **Build Tool**: Vite
-- **State Management**: Vue 3 Composition API + VueUse
-- **Development Environment**: VS Code with Volar
+- 🎨 **Font Matching:** Goodreads uses a self-hosted version of **Lato (weight 500)**, which is not available via Google Fonts. We sourced a compatible Lato 500 variant externally to preserve visual fidelity while avoiding CORS issues.
+- 🧱 **Layout Modernization:** While Goodreads still uses `float`-based layout in parts of their page, our implementation uses **modern Flexbox** (and Grid where suitable), resulting in cleaner and more maintainable responsive design.
+- 🖥️ **Unified Responsive Layout:** Goodreads serves a **separate mobile view** via full-page reload (triggered by a “Mobile Version” CTA). Instead of duplicating that behavior, we built a **fully responsive Modern UI** that works seamlessly across devices — aligning better with modern UX practices.
+- 🌐 **No Backend:** The entire project is frontend-only, with data persisted using **localStorage**.
 
-## 🏗️ Project Structure
+---
 
-```
-src/
-├── components/          # Vue components
-│   ├── Header/         # Navigation and UI mode components
-│   ├── Body/           # Main content and feature components
-│   └── Footer/         # Footer and link components
-├── App.vue             # Root component with UI mode handling
-├── main.ts             # Application entry point
-├── style.css          # Global and theme styles
-├── data.ts            # Mock data and content
-└── footerData.ts      # Footer configuration and links
+## 📦 Getting Started
+
+### Clone the repo
+```bash
+git clone git@github.com:harshaktg/goodreads-clone.git
+cd goodreads-clone
 ```
 
-## 🚦 Getting Started
+### Install dependencies
+```bash
+pnpm install
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone [your-repo-url]
-   cd goodreads-clone
-   ```
+### Run in development
+```bash
+pnpm dev
+```
 
-2. **Install dependencies**
-   ```bash
-   pnpm install
-   ```
+### Build for production
+```bash
+pnpm build
+```
 
-3. **Start the development server**
-   ```bash
-   pnpm dev
-   ```
+## 📱 UX Highlights
 
-4. **Build for production**
-   ```bash
-   pnpm build
-   ```
+- Fully responsive layout for modern devices
+- Dual UI mode switch: Classic (Goodreads style) vs Modern
+- Persisted UI and theme preferences
+- "My Shelf" books persist between visits
+- Smooth transitions and feedback for interactions
 
-## 💻 Development
+## 📸 Screenshots
 
-The project uses Vue 3's Composition API with `<script setup>` syntax for better TypeScript integration and developer experience. Components are organized by feature/domain for better maintainability.
+Add your modern UI + dark mode + shelf preview screenshots here (optional but recommended)
 
-### Code Quality
-- Strong TypeScript typing
-- ESLint configuration for consistent code style
-- Component-based architecture for reusability
-- Responsive design patterns
+## 🏁 Final Notes
 
-### Dark Mode Implementation
-The application features a smart dark mode system that:
-- Syncs with system color scheme by default
-- Allows user override with persistent preferences
-- Provides smooth transitions between themes
-- Uses carefully selected color palette for readability
-- Maintains brand identity in both modes
-
-### Recommended IDE Setup
-- [VS Code](https://code.visualstudio.com/)
-- [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
-- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
-
-## 🤝 Contributing
-
-This is a hackathon project, but contributions, ideas, and feedback are welcome! Feel free to open issues or submit pull requests.
+This clone is built as a Pixel Plus Hackathon submission and aims to reimagine the Goodreads homepage experience with improved responsiveness, a modern UI option, and functional enhancements — all while preserving the core feel of the original.
 
 ## 📝 License
 
-[MIT License](LICENSE)
+MIT
+
+## 🔗 Links
+
+- **Live Demo:** [https://goodreads-clone-eight.vercel.app/](https://goodreads-clone-eight.vercel.app/)
 
 ---
-Built with ❤️ for the love of books and coding
+
+Built with ❤️ for books, the web, and this hackathon.
