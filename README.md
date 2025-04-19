@@ -2,33 +2,52 @@
 
 This is a modern, responsive web application that clones the core functionality of GoodReads, built for a hackathon project. It aims to provide book enthusiasts with a platform to discover, track, and discuss their reading journey.
 
-## 🚀 Features (Planned)
+## 🚀 Implemented Features
 
-- 📚 Browse and search for books
-- ⭐ Rate and review books
-- 📖 Track reading progress
-- 📋 Create and manage reading lists
-- 🤝 Social features (following users, sharing reviews)
+### Core Features
+- 📚 Genre-based book discovery
+- 🏆 Goodreads Choice Awards showcase
+- 💭 Inspirational quotes carousel
+- 📝 Editorial blog section
+- 📋 Curated book lists
+- 👥 Author promotion platform
+
+### User Experience
+- 🌓 Smart dark mode with system preference sync
+- 🎨 Modern, clean UI with Tailwind CSS
+- 🔄 Smooth transitions and animations
 - 📱 Responsive design for all devices
+- 🔒 OAuth-based authentication (Amazon, Apple)
+
+### Technical Features
+- 🏗️ Component-based architecture
+- 📦 Type-safe development with TypeScript
+- 🛠️ Vue 3 Composition API with `<script setup>`
+- 💾 Local storage persistence using VueUse
+- 🎯 ESLint configuration for code quality
 
 ## 🛠️ Tech Stack
 
 - **Frontend Framework**: Vue 3 with TypeScript
-- **Styling**: Tailwind CSS
-- **Build Tool**: Vite
-- **Package Manager**: pnpm
-- **Type Checking**: TypeScript
+- **Styling**: Tailwind CSS for utility-first styling
+- **Build Tool**: Vite for fast development
+- **Package Manager**: pnpm for efficient dependency management
+- **State Management**: Vue 3 Composition API + VueUse
 - **Development Environment**: VS Code with recommended extensions
 
 ## 🏗️ Project Structure
 
 ```
 src/
-├── components/     # Reusable Vue components
-│   └── Header/    # Header-related components
-├── App.vue        # Root component
-├── main.ts        # Application entry point
-└── style.css     # Global styles
+├── components/          # Reusable Vue components
+│   ├── Header/         # Navigation and auth components
+│   ├── Body/           # Main content components
+│   └── Footer/         # Footer components and links
+├── App.vue             # Root component
+├── main.ts             # Application entry point
+├── style.css          # Global styles
+├── data.ts            # Mock data store
+└── footerData.ts      # Footer configuration
 ```
 
 ## 🚦 Getting Started
@@ -57,6 +76,20 @@ src/
 ## 💻 Development
 
 The project uses Vue 3's Composition API with `<script setup>` syntax for better TypeScript integration and developer experience. Components are organized by feature/domain for better maintainability.
+
+### Code Quality
+- Strong TypeScript typing
+- ESLint configuration for consistent code style
+- Component-based architecture for reusability
+- Responsive design patterns
+
+### Dark Mode Implementation
+The application features a smart dark mode system that:
+- Syncs with system color scheme by default
+- Allows user override with persistent preferences
+- Provides smooth transitions between themes
+- Uses carefully selected color palette for readability
+- Maintains brand identity in both modes
 
 ### Recommended IDE Setup
 - [VS Code](https://code.visualstudio.com/)
