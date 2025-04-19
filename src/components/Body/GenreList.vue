@@ -31,7 +31,7 @@ const genreColumns = computed(() => {
                     }}</a>
             </template>
             <a v-if="colIndex === columns - 1" class="hover:underline block hyperlink text-[14px] leading-[1.5]"
-                href="/genres">More
+                href="https://www.goodreads.com/genres">More
                 genres</a>
         </div>
     </div>

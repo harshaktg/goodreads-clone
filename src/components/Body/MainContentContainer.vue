@@ -96,7 +96,8 @@ const activeQuoteIndex = ref(17);
                                 <template v-for="link in data.quoteLinks.slice(1)" :key="'quote-link-' + link.url">
                                     <a class="hover:underline block hyperlink" :href="link.url">{{ link.label }}</a>
                                 </template>
-                                <a class="hover:underline block hyperlink" href="/quotes">More quotes</a>
+                                <a class="hover:underline block hyperlink" href="https://www.goodreads.com/quotes">More
+                                    quotes</a>
                             </div>
                         </div>
                     </div>
@@ -117,7 +118,9 @@ const activeQuoteIndex = ref(17);
                         <ListTeaserItem v-for="(item, index) in data.listTeasers" :key="'list-teaser-' + index"
                             :item="item" />
                         <p class="my-[18px]">
-                            <a class="gr-hyperlink hyperlink hover:underline font-medium" href="/list">More book
+                            <a class="gr-hyperlink hyperlink hover:underline font-medium"
+                                href="https://www.goodreads.com/list">More
+                                book
                                 lists</a>
                         </p>
                     </div>
