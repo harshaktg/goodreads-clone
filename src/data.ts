@@ -282,8 +282,8 @@ const data = {
     title: "Are you an author or a publisher?",
     text: "Gain access to a massive audience of book lovers. Goodreads is a great place to promote your books.",
     links: [
-      { label: "Author program", url: "https://www.goodreads.com/author/program", class: "py-[4px] px-[12px] rounded-[3px] border border-[#D6D0C4] bg-[#F4F1EA] leading-[1] hover:bg-[#ede6d6] text-[11px] inline-block h-[11px]" },
-      { label: "Advertise", url: "https://www.goodreads.com/advertisers", class: "py-[4px] px-[12px] rounded-[3px] border border-[#D6D0C4] bg-[#F4F1EA] leading-[1] hover:bg-[#ede6d6] text-[11px] inline-block h-[11px]" },
+      { label: "Author program", url: "https://www.goodreads.com/author/program", class: "py-[4px] px-[12px] rounded-[3px] border border-[#D6D0C4] bg-[#F4F1EA] dark:bg-dark-bg-secondary dark:text-dark-text-primary leading-[1] hover:bg-[#ede6d6] text-[11px] inline-block h-[11px]" },
+      { label: "Advertise", url: "https://www.goodreads.com/advertisers", class: "py-[4px] px-[12px] rounded-[3px] border border-[#D6D0C4] bg-[#F4F1EA] dark:bg-dark-bg-secondary dark:text-dark-text-primary leading-[1] hover:bg-[#ede6d6] text-[11px] inline-block h-[11px]" },
     ]
   }
 };

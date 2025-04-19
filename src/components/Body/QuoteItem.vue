@@ -37,7 +37,7 @@ defineProps<{
                 <a v-if="quote.author.url" :href="quote.author.url" class="">{{ quote.author.name }}</a>
                 <template v-else>{{ quote.author.name }}</template>
             </span>
-            <span v-if="quote.work" class="font-bold text-[#333]">
+            <span v-if="quote.work" class="font-bold text-[#333] dark:text-dark-text-secondary">
                 , <a class="" :href="quote.work.url">{{ quote.work.title }}</a>
             </span>
         </div>

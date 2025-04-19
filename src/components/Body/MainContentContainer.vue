@@ -81,7 +81,7 @@ onUnmounted(() => {
                                         <input name="utf8" type="hidden" value="✓">
                                         <div class="auto_complete_field_wrapper flex-1">
                                             <input id="sitesearch_field" type="text" name="query"
-                                                placeholder="Title / Author / ISBN" spellcheck="false" class="p-[5px] rounded-[5px] bg-white w-[300px] border border-[#999] outline-none text-[13px] placeholder:text-[#767676]
+                                                placeholder="Title / Author / ISBN" spellcheck="false" class="p-[5px] rounded-[5px] bg-white dark:bg-dark-bg-secondary w-[300px] border border-[#999] outline-none text-[13px] placeholder:text-[#767676]
                                                 focus:shadow-[0_0_4px_rgba(185,173,153,0.5)] h-[16px]">
                                             <div id="sitesearch_autocomplete" />
                                             <img id="sitesearch_field_loading" style="display: none"
