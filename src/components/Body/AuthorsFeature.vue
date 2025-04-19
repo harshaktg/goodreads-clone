@@ -22,7 +22,7 @@ const isModernUX = useLocalStorage('modern-ux-enabled', false);
 
 <template>
     <div id="authorsTeaserBox" class="pr-4 my-[24px]"
-        :class="isModernUX ? 'flex flex-wrap gap-2 mb-4 items-start' : ''">
+        :class="isModernUX ? 'flex md:flex-wrap gap-2 mb-4 items-start' : ''">
         <div v-if="isModernUX" class="flex flex-wrap gap-2 mb-4 justify-center items-center">
             <img :src="data.image" :alt="data.title"
                 class="w-12 h-12 rounded-full object-cover border border-amber-400 shadow" />

@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { watch } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 
 const isModernUX = useLocalStorage('modern-ux-enabled', false)

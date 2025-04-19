@@ -31,11 +31,11 @@ const props = defineProps<{
 <template>
     <div
         class="mt-5 h-[170px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA%2FtpB3AAAAOElEQVQIW2M6uG%2FlfyZGRkYGdIIBCKAsRgYMWXSCAU5gUYzVAAaELA5tCHUQAxjQZIFir16%2FhXAByw8GmnhQCm8AAAAASUVORK5CYII%3D')] dark:bg-none bg-repeat-x bg-bottom flex">
-        <div class="ml-[15px]">
+        <div class="ml-[15px] overflow-hidden md:overflow-auto">
             <p class="mt-0 mb-[18px] text-[12px]">
                 {{ props.item.actionText }}
             </p>
-            <div class="flex items-center">
+            <div class="flex items-center overflow-x-auto md:overflow-x-hidden">
                 <a v-for="(book, index) in props.item.sourceBooks" :key="index" :href="book.url"
                     class="block w-20 h-[120px] mr-[12px] flex-shrink-0">
                     <img :alt="book.alt" :title="book.title" :src="book.src" class="w-full h-full object-cover">
