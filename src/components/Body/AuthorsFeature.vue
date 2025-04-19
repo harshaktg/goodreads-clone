@@ -17,7 +17,7 @@ defineProps<{
 </script>
 
 <template>
-    <div id="authorsTeaserBox" class="pr-4  my-[24px]">
+    <div id="authorsTeaserBox" class="pr-4 my-[24px]">
         <h2 class="text-[18px] font-semibold mb-[10px]">
             {{ data.title }}
         </h2>
