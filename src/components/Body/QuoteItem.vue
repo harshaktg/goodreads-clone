@@ -25,16 +25,16 @@ defineProps<{
 </script>
 
 <template>
-    <div v-show="isVisible" class="flex items-start space-x-4 bg-white">
+    <div v-show="isVisible" class="flex items-start space-x-4">
         <a v-if="quote.avatar" :href="quote.avatar.url"
             class="flex-shrink-0 w-[56px] h-[56px] rounded-full overflow-hidden">
             <img :alt="quote.avatar.alt" :src="quote.avatar.src" class="w-full h-full object-cover">
         </a>
-        <div class="flex-1 quoteText text-gray-800 pr-[5px] pb-[10px]">
+        <div class="flex-1 quoteText text-gray-800 dark:text-dark-text-primary pr-[5px] pb-[10px]">
             <span class="font-serif text-[14px] leading-[24px] font-semibold">{{ quote.text }}</span>
             <br>
             ―
-            <span class="font-bold text-[#333]">
+            <span class="font-bold text-[#333] dark:text-dark-text-secondary">
                 <a v-if="quote.author.url" :href="quote.author.url" class="">{{ quote.author.name }}</a>
                 <template v-else>{{ quote.author.name }}</template>
             </span>

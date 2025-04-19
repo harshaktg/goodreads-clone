@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       fontFamily: {
@@ -21,6 +22,17 @@ export default {
         'gr-button-amazon-bg': '#f5d47a', // Amazon button background
         'gr-button-amazon-border': '#B38B22', // Amazon button border
         'gr-dark-grey': '#999999', // Legal text
+        // Dark mode colors
+        'dark': {
+          'bg-primary': '#1a1a1a',
+          'bg-secondary': '#2d2d2d',
+          'text-primary': '#e5e5e5',
+          'text-secondary': '#a3a3a3',
+          'border': '#404040',
+          'button': '#3d3d3d',
+          'button-hover': '#4a4a4a',
+          'link': '#7dd3cf'
+        }
       },
     },
   },

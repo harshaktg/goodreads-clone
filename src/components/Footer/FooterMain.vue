@@ -15,7 +15,7 @@ const connectLinks = footerData.value.linkGroups.find(group => group.heading ===
 </script>
 
 <template>
-    <footer class="bg-[#f9f8f4] py-[32px]">
+    <footer class="bg-[#f9f8f4] dark:bg-dark-bg-secondary py-[32px] transition-colors duration-200">
         <div class="max-w-[1220px] mx-auto px-[15px]">
             <div class="flex flex-wrap -mx-[15px] box-border">
 
@@ -36,7 +36,7 @@ const connectLinks = footerData.value.linkGroups.find(group => group.heading ===
                         <div
                             class="relative w-full min-h-[1px] px-[15px] box-border flex-grow-0 flex-shrink-0 max-w-[41%]">
                             <h3 v-if="connectLinks"
-                                class="text-[16px] font-bold leading-[1.15] uppercase text-[#767676] mb-[8px]">
+                                class="text-[16px] font-bold leading-[1.15] uppercase text-[#767676] dark:text-dark-text-secondary mb-[8px]">
                                 {{ connectLinks.heading }}
                             </h3>
                             <SocialLinks v-if="connectLinks" :social-links="footerData.socialLinks" />
@@ -54,11 +54,12 @@ const connectLinks = footerData.value.linkGroups.find(group => group.heading ===
                         <ul class="mb-[32px] list-none p-0 m-0 text-[14px]">
                             <li v-for="(item, index) in footerData.metaItems" :key="index" class="leading-[1.5]">
                                 <template v-if="item.url">
-                                    <a :href="item.url" class="text-[#382110] hover:underline">{{
-                                        item.label }}</a>
+                                    <a :href="item.url"
+                                        class="text-[#382110] dark:text-dark-text-primary hover:underline">{{
+                                            item.label }}</a>
                                 </template>
                                 <template v-else>
-                                    {{ item.text }}
+                                    <span class="dark:text-dark-text-secondary">{{ item.text }}</span>
                                 </template>
                             </li>
                         </ul>

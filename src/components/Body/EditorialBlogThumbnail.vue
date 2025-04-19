@@ -17,9 +17,9 @@ const { data } = defineProps<{
 </script>
 
 <template>
-    <section class="bg-white rounded shadow-sm">
+    <section class="rounded shadow-sm">
         <article>
-            <h3 class="text-[16px] font-medium text-[#382110] mb-[4px]">
+            <h3 class="text-[16px] font-medium text-[#382110] dark:text-dark-text-primary mb-[4px]">
                 {{ data.header }}
             </h3>
             <a :href="data.blogPostUrl"

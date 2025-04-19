@@ -5,7 +5,8 @@ import Footer from './components/Footer/FooterMain.vue'
 </script>
 
 <template>
-    <div class="min-h-screen bg-white">
+    <div
+        class="min-h-screen bg-white dark:bg-dark-bg-primary dark:text-dark-text-primary transition-colors duration-200">
         <Header />
         <MainContentContainer />
         <Footer />

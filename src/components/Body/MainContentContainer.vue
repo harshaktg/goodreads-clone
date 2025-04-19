@@ -20,14 +20,15 @@ const activeQuoteIndex = ref(17);
 
 <template>
     <div class="pt-[15px] pb-[25px]">
-        <div class="mx-auto text-left w-[970px] bg-white">
-            <div class=" min-h-0 mt-0 ml-[5px] font-size-[12px] bg-white flex">
+        <div class="mx-auto text-left w-[970px]">
+            <div class=" min-h-0 mt-0 ml-[5px] font-size-[12px] flex">
                 <div class="pr-[10px] pl-[8px]">
                     <div class="flex">
                         <SellingPointBox v-for="(sp, index) in data.sellingPoints" :key="'selling-point-' + index"
                             :title="sp.title" :text="sp.text" :class="sp.class" />
                     </div>
-                    <div id="discoveryBox" class="w-[625px] rounded-[10px] pt-[15px] pb-[20px] bg-[#f4f2e9]">
+                    <div id="discoveryBox"
+                        class="w-[625px] rounded-[10px] pt-[15px] pb-[20px] bg-[#f4f2e9] dark:bg-dark-bg-secondary">
                         <h2 class="text-lg font-semibold mb-[15px] ml-[15px]">
                             What will <em class="italic">you</em>
                             discover?

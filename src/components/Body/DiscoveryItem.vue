@@ -28,7 +28,7 @@ const props = defineProps<{
 
 <template>
     <div
-        class="mt-5 h-[170px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA%2FtpB3AAAAOElEQVQIW2M6uG%2FlfyZGRkYGdIIBCKAsRgYMWXSCAU5gUYzVAAaELA5tCHUQAxjQZIFir16%2FhXAByw8GmnhQCm8AAAAASUVORK5CYII%3D')] bg-repeat-x bg-bottom flex">
+        class="mt-5 h-[170px] bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA%2FtpB3AAAAOElEQVQIW2M6uG%2FlfyZGRkYGdIIBCKAsRgYMWXSCAU5gUYzVAAaELA5tCHUQAxjQZIFir16%2FhXAByw8GmnhQCm8AAAAASUVORK5CYII%3D')] dark:bg-none bg-repeat-x bg-bottom flex">
         <div class="ml-[15px]">
             <p class="mt-0 mb-[18px] text-[12px]">
                 {{ props.item.actionText }}
@@ -55,7 +55,7 @@ const props = defineProps<{
                         :width="props.item.resultBook.width" :src="props.item.resultBook.src"
                         class="reflected w-full h-auto object-cover block border-0">
                 </a>
-                <p class="text-[12px] text-[#000] font-semibold mb-1">
+                <p class="text-[12px] text-[#000] dark:text-dark-text-primary font-semibold mb-1">
                     {{ props.item.resultBook.descriptors }}
                 </p>
             </div>

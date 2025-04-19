@@ -14,7 +14,7 @@ const props = defineProps<{
         <h2 class="mb-[10px] text-[18px] font-semibold">
             {{ props.title }}
         </h2>
-        <p class="text-[#333333] text-[14px] my-[18px]">
+        <p class="text-[#333333] dark:text-dark-text-primary text-[14px] my-[18px]">
             {{ props.text }}
         </p>
     </div>
