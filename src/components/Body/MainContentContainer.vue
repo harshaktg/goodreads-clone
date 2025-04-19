@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import mainContentData from '../../data';
 
 import SellingPointBox from './SellingPointBox.vue';
@@ -14,7 +14,29 @@ import AdsPlaceholder from './AdsPlaceholder.vue';
 
 const data = ref(mainContentData);
 
-const activeQuoteIndex = ref(17);
+function getRandomQuoteIndex() {
+    const quotes = data.value.quotes;
+    return quotes && quotes.length ? Math.floor(Math.random() * quotes.length) : 0;
+}
+
+const activeQuoteIndex = ref(getRandomQuoteIndex());
+
+let quoteInterval: ReturnType<typeof setInterval> | null = null;
+
+onMounted(() => {
+    quoteInterval = setInterval(() => {
+        let newIndex = getRandomQuoteIndex();
+        // Ensure new index is not the same as current to avoid repeat
+        while (data.value.quotes.length > 1 && newIndex === activeQuoteIndex.value) {
+            newIndex = getRandomQuoteIndex();
+        }
+        activeQuoteIndex.value = newIndex;
+    }, 3000);
+});
+
+onUnmounted(() => {
+    if (quoteInterval) clearInterval(quoteInterval);
+});
 
 </script>
 
@@ -81,16 +103,18 @@ const activeQuoteIndex = ref(17);
                         <GenreList :genres="data.genres" :columns="4" />
                     </div>
 
-                    <div class=" my-[24px] text-[14px]">
+                    <div class="md:w-[625px] my-[24px] text-[14px]">
                         <h2 class="text-[18px] font-semibold mb-[10px]">
                             Quotes
                         </h2>
-                        <div class="__quotesBox flex flex-wrap md:flex-nowrap">
+                        <div class="flex flex-wrap md:flex-nowrap">
                             <div id="quotes" class="w-full md:w-2/3 mb-4 md:mb-0">
-                                <QuoteItem v-for="(quote, index) in data.quotes" :key="'quote-' + index" :quote="quote"
-                                    :is-visible="index === activeQuoteIndex" />
+                                <transition name="fade" mode="out-in">
+                                    <QuoteItem v-if="data.quotes.length" :key="activeQuoteIndex"
+                                        :quote="data.quotes[activeQuoteIndex]" />
+                                </transition>
                             </div>
-                            <div class="__quotesBoxLinks w-full md:w-1/3 text-sm">
+                            <div class="w-full md:w-1/3 text-sm">
                                 <a class="hover:underline block hyperlink" :href="data.quoteLinks[0].url">{{
                                     data.quoteLinks[0].label }}</a>
                                 <template v-for="link in data.quoteLinks.slice(1)" :key="'quote-link-' + link.url">
@@ -131,3 +155,15 @@ const activeQuoteIndex = ref(17);
         </div>
     </div>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>

@@ -75,7 +75,7 @@ const editorialBlogs = [
     }
 ];
 
-const quotes = data.quotes.slice(0, 2).map((quote, index) => ({
+const quotes = data.quotes.slice().sort(() => Math.random() - 0.5).slice(0, 2).map((quote, index) => ({
     id: index + 1,
     text: quote.text,
     author: quote.author,

@@ -122,7 +122,7 @@ const data = {
     },
     {
       avatar: { alt: "William W. Purkey", src: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/authors/1282396130i/1744830._UX200_CR0,47,200,200_.jpg", url: "/author/show/1744830.William_W_Purkey" },
-      text: "“You've gotta dance like there's nobody watching,<br>Love like you'll never be hurt,<br>Sing like there's nobody listening,<br>And live like it's heaven on earth.”",
+      text: "“You've gotta dance like there's nobody watching, Love like you'll never be hurt, Sing like there's nobody listening, And live like it's heaven on earth.”",
       author: { name: "William W. Purkey", url: "https://www.goodreads.com/author/show/1744830.William_W_Purkey" },
       work: null,
     },
@@ -158,7 +158,7 @@ const data = {
     },
     {
       avatar: { alt: "Albert Camus", src: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/authors/1686463588i/957894._UY200_CR46,0,200,200_.jpg", url: "/author/show/957894.Albert_Camus" },
-      text: "“Don’t walk in front of me… I may not follow<br>Don’t walk behind me… I may not lead<br>Walk beside me… just be my friend”",
+      text: "“Don’t walk in front of me… I may not follow. Don’t walk behind me… I may not lead. Walk beside me… just be my friend”",
       author: { name: "Albert Camus", url: "https://www.goodreads.com/author/show/957894.Albert_Camus" },
       work: null,
     },
