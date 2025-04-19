@@ -1,7 +1,6 @@
 <template>
     <main class="py-8 sm:py-12 bg-gradient-to-b from-purple-700/5 to-transparent">
         <div class="container-responsive">
-            <!-- Editorial and Blog Section -->
             <section class="mb-8 sm:mb-16 animate-slide-up" style="animation-delay: 100ms;">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">Editorial Picks
                 </h2>
@@ -11,7 +10,6 @@
                 </div>
             </section>
 
-            <!-- Quotes Section -->
             <section class="mb-8 sm:mb-16 animate-slide-up" style="animation-delay: 200ms;">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">Inspiring Quotes
                 </h2>
@@ -30,12 +28,10 @@
                 </div>
             </section>
 
-            <!-- Choice Awards -->
             <section class="mb-8 sm:mb-16 animate-slide-up" style="animation-delay: 400ms;">
                 <ChoiceAwards :awards-data="awardsData" class="modern-awards" />
             </section>
 
-            <!-- Authors Feature -->
             <section class="animate-slide-up" style="animation-delay: 500ms;">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">Featured Authors
                 </h2>
@@ -44,7 +40,6 @@
                 </div>
             </section>
 
-            <!-- Genre List Section -->
             <section class="mb-8 sm:mb-16 animate-fade-in">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">Explore Genres
                 </h2>
@@ -65,10 +60,8 @@ import ChoiceAwards from './ChoiceAwards.vue';
 import AuthorsFeature from './AuthorsFeature.vue';
 import data from '../../data';
 
-// Use genres from data.ts
 const genres = data.genres;
 
-// Use editorial blogs data
 const editorialBlogs = [
     {
         id: 'editorial-blog',
@@ -82,7 +75,6 @@ const editorialBlogs = [
     }
 ];
 
-// Use quotes from data.ts
 const quotes = data.quotes.slice(0, 2).map((quote, index) => ({
     id: index + 1,
     text: quote.text,
@@ -91,7 +83,6 @@ const quotes = data.quotes.slice(0, 2).map((quote, index) => ({
     work: quote.work
 }));
 
-// Use discovery items from data.ts
 const discoveryItems = data.discoveryItems.map((item, index) => ({
     id: `discovery-${index}`,
     title: item.actionText.replace('Because ', '').replace(' liked…', ''),
@@ -115,7 +106,6 @@ const discoveryItems = data.discoveryItems.map((item, index) => ({
     description: item.resultBook.descriptors
 }));
 
-// Use awards data from data.ts
 const awardsData = {
     title: data.awards.title,
     logo: data.awards.logo,
@@ -123,7 +113,6 @@ const awardsData = {
     categories: data.awards.categories.slice(0, 3)
 };
 
-// Use authors data from data.ts - only use authors with valid URLs
 const authors = [
     {
         id: 'oscar-wilde',

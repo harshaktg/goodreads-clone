@@ -1,6 +1,5 @@
 <template>
     <div class="relative min-h-[370px] w-full bg-gradient-to-r from-amber-800 to-orange-700 font-sans overflow-hidden">
-        <!-- Animated background elements -->
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute -inset-[10px] opacity-50">
                 <div
@@ -12,9 +11,7 @@
             </div>
         </div>
 
-        <!-- Header content -->
         <div class="relative">
-            <!-- Navigation bar -->
             <div class="bg-white/5 backdrop-blur-sm border-b border-white/10">
                 <div class="container-responsive">
                     <div class="h-16 flex items-center justify-between">
@@ -33,10 +30,8 @@
                 </div>
             </div>
 
-            <!-- Hero section -->
             <div class="container-responsive py-12">
                 <div class="flex flex-col md:flex-row items-center justify-between relative z-10">
-                    <!-- Left column -->
                     <div class="md:w-1/2 text-white space-y-6 animate-slide-up">
                         <h1 class="text-4xl md:text-5xl font-bold leading-tight">
                             Your Next Great Read Awaits
@@ -46,25 +41,7 @@
                             connecting with a
                             vibrant community of book lovers.
                         </p>
-                        <!-- <div class="flex flex-col sm:flex-row gap-4">
-                            <button class="btn btn-primary bg-white text-purple-700 hover:bg-gray-100 group">
-                                <span class="flex items-center">
-                                    Sign up with email
-                                    <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <button
-                                class="btn btn-secondary border border-white/20 text-white hover:bg-white/10 backdrop-blur-sm">
-                                Learn more
-                            </button>
-                        </div> -->
                     </div>
-
-                    <!-- Right column -->
                     <div class="md:w-1/2 flex justify-center mt-8 md:mt-0 animate-slide-up"
                         style="animation-delay: 200ms;">
                         <div class="relative w-full max-w-md">
@@ -82,7 +59,6 @@
 </template>
 
 <script setup lang="ts">
-import Container from './HeaderContainer.vue';
 import AuthBox from './AuthBox.vue';
 import DarkModeToggle from './DarkModeToggle.vue';
 import UXModeToggle from './UXModeToggle.vue';

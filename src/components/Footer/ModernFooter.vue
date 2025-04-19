@@ -2,7 +2,6 @@
     <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div class="container-responsive py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-in">
-                <!-- Company Info -->
                 <div class="space-y-4">
                     <img src="https://s.gr-assets.com/assets/home/header_logo-8d96d7078a3d63f9f31d92282fd67cf4.png"
                         alt="Goodreads" class="h-8 dark:invert">
@@ -18,7 +17,6 @@
                     </div>
                 </div>
 
-                <!-- Link Groups -->
                 <div v-for="group in footerData.linkGroups" :key="group.heading" class="space-y-4">
                     <h3 v-if="group.heading !== 'Connect'"
                         class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
@@ -34,7 +32,6 @@
                     </ul>
                 </div>
 
-                <!-- App Badges -->
                 <div class="space-y-4">
                     <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
                         Mobile Apps
@@ -47,7 +44,6 @@
                 </div>
             </div>
 
-            <!-- Bottom Bar -->
             <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                     <p class="text-gray-500 dark:text-gray-400">
