@@ -19,7 +19,52 @@
                 </div>
             </section>
 
-            <!-- Discovery Section -->
+            <section class="mb-12">
+                <MyShelf :isModernUI="true" />
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                    Popular This Week
+                </h2>
+                <div class="block sm:hidden">
+                    <div class="grid grid-cols-2 gap-4">
+                        <BookCard v-for="book in popularBooks" :key="book.id" :book="book" :isModernUI="true" />
+                    </div>
+                </div>
+                <div class="hidden sm:block">
+                    <div class="relative group">
+                        <div class="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide scroll-smooth"
+                            ref="scrollContainer">
+                            <BookCard v-for="book in popularBooks" :key="book.id" :book="book" :isModernUI="true" />
+                        </div>
+                        <div
+                            class="absolute left-0 top-0 bottom-4 w-8 bg-gradient-to-r from-white dark:from-gray-900 to-transparent pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-white dark:from-gray-900 to-transparent pointer-events-none">
+                        </div>
+
+                        <button @click="scrollLeft"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-white dark:hover:bg-gray-700">
+                            <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button @click="scrollRight"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-white dark:hover:bg-gray-700">
+                            <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
             <section class="mb-8 sm:mb-16 animate-slide-up" style="animation-delay: 300ms;">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">Discover More</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -52,12 +97,16 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { popularBooks } from '../../constants/books';
 import GenreList from './GenreList.vue';
 import EditorialBlogThumbnail from './EditorialBlogThumbnail.vue';
 import QuoteItem from './QuoteItem.vue';
 import DiscoveryItem from './DiscoveryItem.vue';
 import ChoiceAwards from './ChoiceAwards.vue';
 import AuthorsFeature from './AuthorsFeature.vue';
+import MyShelf from './MyShelf.vue'
+import BookCard from './BookCard.vue'
 import data from '../../data';
 
 const genres = data.genres;
@@ -145,6 +194,20 @@ const authors = [
         ]
     }
 ];
+
+const scrollContainer = ref<HTMLElement | null>(null);
+
+const scrollLeft = () => {
+    if (scrollContainer.value) {
+        scrollContainer.value.scrollBy({ left: -200, behavior: 'smooth' });
+    }
+};
+
+const scrollRight = () => {
+    if (scrollContainer.value) {
+        scrollContainer.value.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+};
 </script>
 
 <style scoped>
@@ -234,5 +297,23 @@ const authors = [
     @apply text-sm sm:text-base py-1 px-2 sm:px-3 rounded-md;
     @apply hover:bg-gray-100 dark:hover:bg-gray-700;
     @apply transition-colors duration-200;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+/* Add smooth scrolling to the container */
+.scroll-smooth {
+    scroll-behavior: smooth;
 }
 </style>

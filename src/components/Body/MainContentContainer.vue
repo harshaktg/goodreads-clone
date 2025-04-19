@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import mainContentData from '../../data';
+import { popularBooks } from '../../constants/books';
 
 import SellingPointBox from './SellingPointBox.vue';
 import DiscoveryItem from './DiscoveryItem.vue';
@@ -11,7 +12,13 @@ import EditorialBlogThumbnail from './EditorialBlogThumbnail.vue';
 import ListTeaserItem from './ListTeaserItem.vue';
 import AuthorsFeature from './AuthorsFeature.vue';
 import AdsPlaceholder from './AdsPlaceholder.vue';
+import MyShelf from './MyShelf.vue'
+import BookCard from './BookCard.vue'
+import { useShelf } from '../../composables/useShelf'
 
+
+const { myShelf } = useShelf()
+const shelfCount = computed(() => myShelf.value?.length ?? 0)
 const data = ref(mainContentData);
 
 function getRandomQuoteIndex() {
@@ -26,18 +33,30 @@ let quoteInterval: ReturnType<typeof setInterval> | null = null;
 onMounted(() => {
     quoteInterval = setInterval(() => {
         let newIndex = getRandomQuoteIndex();
-        // Ensure new index is not the same as current to avoid repeat
         while (data.value.quotes.length > 1 && newIndex === activeQuoteIndex.value) {
             newIndex = getRandomQuoteIndex();
         }
         activeQuoteIndex.value = newIndex;
-    }, 3000);
+    }, 10000);
 });
 
 onUnmounted(() => {
     if (quoteInterval) clearInterval(quoteInterval);
 });
 
+const scrollContainer = ref<HTMLElement | null>(null);
+
+const scrollLeft = () => {
+    if (scrollContainer.value) {
+        scrollContainer.value.scrollBy({ left: -200, behavior: 'smooth' });
+    }
+};
+
+const scrollRight = () => {
+    if (scrollContainer.value) {
+        scrollContainer.value.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+};
 </script>
 
 <template>
@@ -150,10 +169,66 @@ onUnmounted(() => {
                     </div>
 
                     <AuthorsFeature :data="data.authorsFeature" />
+
+                    <div class="content-section">
+                        <h2 class="section-title text-[18px] font-medium mb-[10px]">My Shelf ({{ shelfCount }})</h2>
+                        <MyShelf isCompact />
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title text-[18px] font-medium mb-[10px]">Popular Books</h2>
+                        <div class="block sm:hidden">
+                            <div class="relative">
+                                <div class="flex gap-4 overflow-x-auto pb-4 px-1 -mx-1 scrollbar-hide scroll-smooth">
+                                    <BookCard v-for="book in popularBooks" :key="book.id" :book="book" isCompact />
+                                </div>
+                                <div
+                                    class="absolute left-0 top-0 bottom-4 w-4 bg-gradient-to-r from-[#f4f2e9] dark:from-dark-bg-secondary to-transparent pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute right-0 top-0 bottom-4 w-4 bg-gradient-to-l from-[#f4f2e9] dark:from-dark-bg-secondary to-transparent pointer-events-none">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Desktop View: Horizontal scroll -->
+                        <div class="hidden sm:block">
+                            <div class="relative group">
+                                <div class="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide scroll-smooth"
+                                    ref="scrollContainer">
+                                    <BookCard v-for="book in popularBooks" :key="book.id" :book="book" isCompact />
+                                </div>
+                                <div
+                                    class="absolute left-0 top-0 bottom-4 w-8 bg-gradient-to-r from-[#f4f2e9] dark:from-dark-bg-secondary to-transparent pointer-events-none">
+                                </div>
+                                <div
+                                    class="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-[#f4f2e9] dark:from-dark-bg-secondary to-transparent pointer-events-none">
+                                </div>
+
+                                <!-- Scroll buttons -->
+                                <button @click="scrollLeft"
+                                    class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-white dark:hover:bg-gray-700">
+                                    <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <button @click="scrollRight"
+                                    class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-white dark:hover:bg-gray-700">
+                                    <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </template>
 
 <style scoped>
@@ -165,5 +240,31 @@ onUnmounted(() => {
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+.content-section {
+    @apply max-w-[970px] mx-auto px-4 sm:px-0 my-8;
+}
+
+.section-title {
+    @apply text-[#382110] dark:text-gray-100;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+/* Add smooth scrolling to the container */
+.scroll-smooth {
+    scroll-behavior: smooth;
 }
 </style>

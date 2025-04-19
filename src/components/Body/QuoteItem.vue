@@ -27,7 +27,7 @@ defineProps<{
     <div class="flex items-start space-x-4">
         <a v-if="quote.avatar" :href="quote.avatar.url"
             class="flex-shrink-0 w-[56px] h-[56px] rounded-full overflow-hidden">
-            <img :alt="quote.avatar.alt" :src="quote.avatar.src" class="w-full h-full object-cover">
+            <img :alt="quote.avatar.alt" :src="quote.avatar.src" class="w-full h-full object-cover avatar">
         </a>
         <div class="flex-1 quoteText text-gray-800 dark:text-dark-text-primary pr-[5px] pb-[10px]">
             <span class="font-serif text-[14px] leading-[24px] font-semibold">{{ quote.text }}</span>
@@ -43,3 +43,8 @@ defineProps<{
         </div>
     </div>
 </template>
+<style scoped>
+.avatar:hover {
+    filter: brightness(80%);
+}
+</style>
