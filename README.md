@@ -78,7 +78,20 @@ pnpm build
 
 ## 📸 Screenshots
 
-Add your modern UI + dark mode + shelf preview screenshots here (optional but recommended)
+![image](https://github.com/user-attachments/assets/0db18839-d9ba-4e47-ba87-b309dd6a7627)
+*Full clone of GoodReads*
+
+![image](https://github.com/user-attachments/assets/91629d1c-65ad-4fd7-b601-c873d536ba26)
+*Dark mode toggle along with persistence*
+
+![image](https://github.com/user-attachments/assets/671a8a15-4658-4de4-9aac-3553c7c92af6)
+*A glimpse of the Modern UI of GoodReads*
+
+![image](https://github.com/user-attachments/assets/879eac67-9e9d-492e-9a6e-336244c0bd66)
+*The 'My Shelf' feature to bookmark popular books*
+
+![image](https://github.com/user-attachments/assets/8683e7e0-4ff1-4bd1-b4ce-8894de62cfdc)
+*A responsive mobile view seen in the Modern UI*
 
 ## 🏁 Final Notes
 
