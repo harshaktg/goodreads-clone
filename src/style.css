@@ -17,13 +17,78 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Modern UI Styles */
+.modern-ux {
+  --primary-color: theme('colors.amber.700');
+  --secondary-color: theme('colors.orange.600');
+  --text-primary: theme('colors.gray.900');
+  --text-secondary: theme('colors.gray.600');
+  --bg-primary: theme('colors.white');
+  --bg-secondary: theme('colors.gray.50');
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.modern-ux.dark {
+  --text-primary: theme('colors.gray.100');
+  --text-secondary: theme('colors.gray.400');
+  --bg-primary: theme('colors.gray.900');
+  --bg-secondary: theme('colors.gray.800');
+}
+
+/* Modern UI Component Styles */
+.modern-ux .btn {
+  @apply px-4 py-2 rounded-lg transition-all duration-200 ease-in-out;
+  @apply hover:shadow-md active:scale-95;
+}
+
+.modern-ux .btn-primary {
+  @apply bg-amber-700 text-white hover:bg-amber-800;
+}
+
+.modern-ux .btn-secondary {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  @apply dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+}
+
+.modern-ux .card {
+  @apply rounded-lg bg-white shadow-md transition-all duration-200;
+  @apply dark:bg-gray-800 hover:shadow-lg;
+}
+
+.modern-ux .input {
+  @apply px-4 py-2 rounded-lg border border-gray-300 transition-all duration-200;
+  @apply focus:border-amber-700 focus:ring-2 focus:ring-amber-700 focus:ring-opacity-50;
+  @apply dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200;
+}
+
+/* Responsive Design Utilities */
+@layer utilities {
+  .container-responsive {
+    @apply md:w-full mx-auto px-4;
+    @apply sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px];
+  }
+
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row;
+  }
+
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+  }
+}
+
 * {
   box-sizing: content-box;
 }
 
 .hyperlink {
-  color: #00635D;
-  text-decoration: none;
+  @apply text-[#00635D] no-underline;
+  @apply modern-ux:text-amber-700 modern-ux:hover:text-amber-800;
 }
 
 html,
@@ -31,4 +96,21 @@ body {
   margin: 0;
   padding: 0;
 
+}
+
+/* Modern UI Typography */
+.modern-ux h1 {
+  @apply text-4xl font-bold mb-6;
+}
+
+.modern-ux h2 {
+  @apply text-3xl font-semibold mb-4;
+}
+
+.modern-ux h3 {
+  @apply text-2xl font-semibold mb-3;
+}
+
+.modern-ux p {
+  @apply text-base leading-relaxed mb-4;
 }

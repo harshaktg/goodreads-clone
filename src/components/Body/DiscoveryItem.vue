@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { useLocalStorage } from '@vueuse/core'
 
 interface ItemData {
     actionText: string;
@@ -21,6 +22,7 @@ interface ItemData {
     arrowImgSrc: string;
 }
 
+const isModernUX = useLocalStorage('modern-ux-enabled', false)
 const props = defineProps<{
     item: ItemData
 }>();
@@ -41,24 +43,27 @@ const props = defineProps<{
             </div>
         </div>
 
-        <div class="flex-shrink-0 mr-[10px] mt-[80px]">
-            <img :alt="'→'" :src="props.item.arrowImgSrc" class="w-[21px] h-[28px]">
-        </div>
-
-        <div class="flex-1 mr-[10px]">
-            <p class="mt-0 mb-[18px] text-[12px]">
-                {{ props.item.resultBook.actionText }}
-            </p>
-            <div class="flex">
-                <a :href="props.item.resultBook.url" class="inline-block mr-[10px] flex-shrink-0 flex-grow-0 w-[80px]">
-                    <img :alt="props.item.resultBook.alt" :title="props.item.resultBook.title"
-                        :width="props.item.resultBook.width" :src="props.item.resultBook.src"
-                        class="reflected w-full h-auto object-cover block border-0">
-                </a>
-                <p class="text-[12px] text-[#000] dark:text-dark-text-primary font-semibold mb-1">
-                    {{ props.item.resultBook.descriptors }}
-                </p>
+        <template v-if="!isModernUX">
+            <div class="flex-shrink-0 mr-[10px] mt-[80px]">
+                <img :alt="'→'" :src="props.item.arrowImgSrc" class="w-[21px] h-[28px]">
             </div>
-        </div>
+
+            <div class="flex-1 mr-[10px]">
+                <p class="mt-0 mb-[18px] text-[12px]">
+                    {{ props.item.resultBook.actionText }}
+                </p>
+                <div class="flex">
+                    <a :href="props.item.resultBook.url"
+                        class="inline-block mr-[10px] flex-shrink-0 flex-grow-0 w-[80px]">
+                        <img :alt="props.item.resultBook.alt" :title="props.item.resultBook.title"
+                            :width="props.item.resultBook.width" :src="props.item.resultBook.src"
+                            class="reflected w-full h-auto object-cover block border-0">
+                    </a>
+                    <p class="text-[12px] text-[#000] dark:text-dark-text-primary font-semibold mb-1">
+                        {{ props.item.resultBook.descriptors }}
+                    </p>
+                </div>
+            </div>
+        </template>
     </div>
 </template>

@@ -2,52 +2,83 @@
 
 This is a modern, responsive web application that clones the core functionality of GoodReads, built for a hackathon project. It aims to provide book enthusiasts with a platform to discover, track, and discuss their reading journey.
 
+## Features
+
+- **Book Discovery**
+  - Browse books by genre with curated lists
+  - Explore Choice Awards selections
+  - Discover featured authors and their works
+  - View editorial blog content and recommendations
+
+- **Quote Feature**
+  - View inspiring quotes from books
+  - Dynamic quote display with author attribution
+  - Smooth transitions between quotes
+
+- **Dual Interface**
+  - Toggle between Classic and Modern UI
+  - Persistent UI preference storage
+  - Enhanced Modern interface with animations
+  - Maintains Goodreads familiarity in Classic mode
+
+- **Dark Mode Support**
+  - System-preference aware dark mode
+  - Manual theme toggle with persistence
+  - Smooth theme transitions
+  - Carefully crafted dark mode color palette
+
+- **Modern UI Elements**
+  - Animated gradient headers
+  - Responsive card layouts
+  - Interactive hover states
+  - Accessibility-focused design
+
 ## 🚀 Implemented Features
 
 ### Core Features
-- 📚 Genre-based book discovery
+- 📚 Genre-based book browsing
 - 🏆 Goodreads Choice Awards showcase
-- 💭 Inspirational quotes carousel
-- 📝 Editorial blog section
-- 📋 Curated book lists
-- 👥 Author promotion platform
+- 💭 Dynamic quotes display
+- 📝 Editorial blog previews
+- 📋 List teasers and recommendations
+- 👥 Featured authors section
 
 ### User Experience
-- 🌓 Smart dark mode with system preference sync
-- 🎨 Modern, clean UI with Tailwind CSS
+- 🎨 Dual UI modes (Classic/Modern)
+- 🌓 Smart dark mode with system sync
 - 🔄 Smooth transitions and animations
-- 📱 Responsive design for all devices
-- 🔒 OAuth-based authentication (Amazon, Apple)
+- 📱 Fully responsive design
+- 💾 Persistent user preferences
 
 ### Technical Features
-- 🏗️ Component-based architecture
-- 📦 Type-safe development with TypeScript
-- 🛠️ Vue 3 Composition API with `<script setup>`
-- 💾 Local storage persistence using VueUse
-- 🎯 ESLint configuration for code quality
+- 🏗️ Vue 3 component architecture
+- 📦 TypeScript for type safety
+- 🛠️ Composition API with `<script setup>`
+- 💾 VueUse for composables
+- 🎨 Tailwind CSS with custom config
+- 🔍 Modern and classic theme variants
 
 ## 🛠️ Tech Stack
 
 - **Frontend Framework**: Vue 3 with TypeScript
-- **Styling**: Tailwind CSS for utility-first styling
-- **Build Tool**: Vite for fast development
-- **Package Manager**: pnpm for efficient dependency management
+- **Styling**: Tailwind CSS with custom utilities
+- **Build Tool**: Vite
 - **State Management**: Vue 3 Composition API + VueUse
-- **Development Environment**: VS Code with recommended extensions
+- **Development Environment**: VS Code with Volar
 
 ## 🏗️ Project Structure
 
 ```
 src/
-├── components/          # Reusable Vue components
-│   ├── Header/         # Navigation and auth components
-│   ├── Body/           # Main content components
-│   └── Footer/         # Footer components and links
-├── App.vue             # Root component
+├── components/          # Vue components
+│   ├── Header/         # Navigation and UI mode components
+│   ├── Body/           # Main content and feature components
+│   └── Footer/         # Footer and link components
+├── App.vue             # Root component with UI mode handling
 ├── main.ts             # Application entry point
-├── style.css          # Global styles
-├── data.ts            # Mock data store
-└── footerData.ts      # Footer configuration
+├── style.css          # Global and theme styles
+├── data.ts            # Mock data and content
+└── footerData.ts      # Footer configuration and links
 ```
 
 ## 🚦 Getting Started

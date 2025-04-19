@@ -19,7 +19,7 @@ defineProps<{
 </script>
 
 <template>
-    <div id="choiceAwardCategories" class="my-[24px] w-[625px]">
+    <div id="choiceAwardCategories" class="my-[24px] md:w-[625px]">
         <h2 class="text-[18px] font-medium mb-[10px]">
             {{ awardsData.title }}
         </h2>
@@ -31,7 +31,7 @@ defineProps<{
                 </a>
             </div>
             <div class="text-[#333] text-[14px] leading-[18px]">
-                <ul class="list-none p-0 m-0 columns-2">
+                <ul class="list-none p-0 m-0 md:columns-2">
                     <li v-for="(category, index) in awardsData.categories" :key="index" class="mb-3">
                         <a class="hyperlink hover:underline" :href="category.url">{{ category.label }}</a>
                     </li>

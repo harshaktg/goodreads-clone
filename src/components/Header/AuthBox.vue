@@ -1,8 +1,8 @@
 <template>
     <div id="newAccountBox"
         class="w-[250px] mt-[14px] mr-[6px] mb-0 ml-0 font-serif sticky p-[24px] bg-white dark:bg-dark-bg-secondary border border-[#D8D8D8] dark:border-dark-border rounded-[10px]">
-        <h2
-            class="mb-[10px] text-[18px] pt-[4px] pb-[14px] text-center clear-both margin-[20px_0_10px_0] text-[#000] dark:text-dark-text-primary font-semibold">
+        <h2 class="mb-[10px] text-[18px] pt-[4px] pb-[14px] text-center clear-both margin-[20px_0_10px_0] text-[#000] dark:text-dark-text-primary font-semibold"
+            :class="isModernUX ? 'text-white' : ''">
             Discover & read more
         </h2>
 
@@ -31,13 +31,15 @@
 
         <div id="legal"
             class="text-[12px] text-center font-sans text-[#999999] dark:text-dark-text-secondary pr-[24px] font-medium">
-            <div class="legalMessage">
+            <div class="legalMessage" :class="isModernUX ? 'text-white' : ''">
                 By creating an account, you agree to the Goodreads
                 <a target="_blank" class="gr-hyperlink text-[#00635d] dark:text-dark-link no-underline"
-                    rel="noopener noreferrer" href="https://www.goodreads.com/about/terms">Terms of Service</a>
+                    :class="isModernUX ? 'text-amber-200' : ''" rel="noopener noreferrer"
+                    href="https://www.goodreads.com/about/terms">Terms of Service</a>
                 and
                 <a target="_blank" class="gr-hyperlink text-[#00635d] dark:text-dark-link no-underline"
-                    rel="noopener noreferrer" href="https://www.goodreads.com/about/privacy">Privacy Policy</a>.
+                    :class="isModernUX ? 'text-amber-200' : ''" rel="noopener noreferrer"
+                    href="https://www.goodreads.com/about/privacy">Privacy Policy</a>.
             </div>
         </div>
 
@@ -46,9 +48,16 @@
                 <div class="mt-6">
                     Already a member?
                     <a class="gr-hyperlink text-[#00635d] dark:text-dark-link no-underline"
-                        href="https://www.goodreads.com/user/sign_in">Sign In</a>
+                        :class="isModernUX ? 'text-amber-200' : ''" href="https://www.goodreads.com/user/sign_in">Sign
+                        In</a>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { useLocalStorage } from '@vueuse/core'
+
+const isModernUX = useLocalStorage('modern-ux-enabled', false)
+</script>

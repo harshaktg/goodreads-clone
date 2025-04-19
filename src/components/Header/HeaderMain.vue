@@ -11,8 +11,9 @@
                                 class="dark:invert">
                         </a>
                     </div>
-                    <div class="absolute left-52 top-3">
+                    <div class="absolute left-52 top-3 flex items-center space-x-4">
                         <DarkModeToggle />
+                        <UXModeToggle />
                     </div>
                 </div>
                 <div class="absolute h-[370px] z-10 right-0 top-0">
@@ -31,6 +32,7 @@
 import Container from './HeaderContainer.vue';
 import AuthBox from './AuthBox.vue';
 import DarkModeToggle from './DarkModeToggle.vue';
+import UXModeToggle from './UXModeToggle.vue';
 </script>
 
 <style scoped></style>
